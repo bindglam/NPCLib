@@ -1,0 +1,6 @@
+name: NPCLib
+version: 1.0
+main: io.github.bindglam.npclib.NPCLibImpl
+api-version: 1.21
+depend:
+ - Citizens
