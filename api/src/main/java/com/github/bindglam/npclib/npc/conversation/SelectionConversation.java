@@ -19,7 +19,11 @@ public abstract class SelectionConversation implements Conversation {
 
         for(int i = 0; i < selections.length; i++){
             int finalI = i;
-            message = message.append(selections[i].clickEvent(ClickEvent.callback((audience) -> onSelect(player, finalI)))).append(Component.text(" "));
+            message = message.append(selections[i].clickEvent(ClickEvent.callback((audience) -> {
+                if(player.hasMetadata("is-talking")) {
+                    onSelect(player, finalI);
+                }
+            }))).append(Component.text(" "));
         }
         player.sendMessage(message);
     }
